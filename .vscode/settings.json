@@ -5,6 +5,7 @@
     "windows.h": "c",
     "crtdefs.h": "c",
     "corecrt.h": "c",
-    "winbase.h": "c"
+    "winbase.h": "c",
+    "main.h": "c"
   }
 }
