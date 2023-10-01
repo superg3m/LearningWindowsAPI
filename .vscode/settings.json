@@ -6,6 +6,12 @@
     "crtdefs.h": "c",
     "corecrt.h": "c",
     "winbase.h": "c",
-    "main.h": "c"
+    "main.h": "c",
+    "stdbool.h": "c",
+    "time.h": "c",
+    "stdint.h": "c",
+    "array": "c",
+    "string_view": "c",
+    "initializer_list": "c"
   }
 }
