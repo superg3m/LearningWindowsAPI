@@ -124,10 +124,11 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR pCmdLine, int nC
             DispatchMessage(&message);
         }
 
-        quicksortNElements(pixelBuffers[currentBufferIndex], 0, index, BATCH_SIZE);
+        // quicksortNElements(pixelBuffers[currentBufferIndex], 0, index, BATCH_SIZE);
         if (onlyOnce == 0) {
             index += BATCH_SIZE;
         }
+        pixelBuffers[currentBufferIndex] -= 10;
         SwapBuffers();
     }
 
@@ -165,7 +166,7 @@ void SwapBuffers() {
 
 // Function to render to the current buffer
 void Render(int* pixelData) {
-    StretchDIBits(hdc, 0, 0, width, height, 0, 0, width, height, (void*)pixelData, &bitmap_info, DIB_RGB_COLORS, SRCCOPY);
+    StretchDIBits(hdc, 0, 0, width, height, 0, 0, width, height, (void*)pixelData++, &bitmap_info, DIB_RGB_COLORS, SRCCOPY);
 }
 
 
