@@ -54,7 +54,7 @@ void quicksort(int* arr, int low, int high) {
 void quicksortNElements(int* arr, int low, int high, int nElements) {
     if (high > HALF_SIZE && onlyOnce == 0) {
         printf("WORKING\n");
-        quicksort(arr, 0, HALF_SIZE * 2);
+        quicksort(arr, 0, HALF_SIZE);
         onlyOnce = 1;
     } else if (high < HALF_SIZE) {
         if (low < high) {
