@@ -3,7 +3,7 @@
 #define CLASS_NAME "My_First_Window"
 
 // Define constants
-#define BUFFER_COUNT 2
+#define BUFFER_COUNT 1
 #define BATCH_SIZE 5000
 
 // Global variables
@@ -52,11 +52,11 @@ void quicksort(int* arr, int low, int high) {
 }
 
 void quicksortNElements(int* arr, int low, int high, int nElements) {
-    if (high > MAX_SIZE && onlyOnce == 0) {
+    if (high > HALF_SIZE && onlyOnce == 0) {
         printf("WORKING\n");
-        quicksort(arr, 0, MAX_SIZE);
+        quicksort(arr, 0, HALF_SIZE * 2);
         onlyOnce = 1;
-    } else if (high < MAX_SIZE) {
+    } else if (high < HALF_SIZE) {
         if (low < high) {
             int pi = partition(arr, low, high);
 
@@ -92,13 +92,13 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR pCmdLine, int nC
 
     MEMORY_ALLOC_SIZE = width * height * sizeof(unsigned int);
 
-    MAX_SIZE = (MEMORY_ALLOC_SIZE / (2 * sizeof(unsigned int))) - 1;
+    HALF_SIZE = (MEMORY_ALLOC_SIZE / (2 * sizeof(unsigned int))) - 1;
 
     InitializeBuffers();
 
     // Initialize the first buffer
     int* start = pixelBuffers[0];
-    for (int i = 0; i < MAX_SIZE; i++) {
+    for (int i = 0; i < HALF_SIZE; i++) {
         *(start++) = 0x0000FF + (i % 1000);
     }
 
@@ -124,7 +124,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR pCmdLine, int nC
             DispatchMessage(&message);
         }
 
-        quicksortNElements(pixelBuffers[currentBufferIndex], 0, index, BATCH_SIZE); // Sort 100 elements at a time
+        quicksortNElements(pixelBuffers[currentBufferIndex], 0, index, BATCH_SIZE);
         if (onlyOnce == 0) {
             index += BATCH_SIZE;
         }

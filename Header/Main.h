@@ -19,4 +19,4 @@ void* memory;
 HDC hdc;
 
 int MEMORY_ALLOC_SIZE = 0;
-int MAX_SIZE = 0;
+int HALF_SIZE = 0;
