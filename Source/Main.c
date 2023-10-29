@@ -79,6 +79,7 @@ void quicksortNElements(int* arr, int low, int high, int nElements) {
 }
 
 int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR pCmdLine, int nCmdShow) {
+
     registerWindowsClass(hInstance, CLASS_NAME);
 
     windowHandle = createWindowHandle(hInstance, CLASS_NAME);
@@ -190,7 +191,7 @@ void registerWindowsClass(HINSTANCE hInstance, const char* className) {
 }
 
 HWND createWindowHandle(HINSTANCE hInstance, const char* className) {
-  return CreateWindowEx(0, className, "TESTING", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
+  return CreateWindowExA(0, className, "TESTING", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
                         CW_USEDEFAULT, NULL, NULL, hInstance, NULL);
 }
 
