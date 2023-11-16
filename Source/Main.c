@@ -18,7 +18,7 @@ int onlyOnce = 0;
 
 // Function prototypes
 void InitializeBuffers();
-void SwapBuffers();
+void SwapBuffers_Me();
 void Render(int* pixelData);
 
 void swap(int* a, int* b) {
@@ -130,7 +130,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR pCmdLine, int nC
             index += BATCH_SIZE;
         }
         pixelBuffers[currentBufferIndex] -= 10;
-        SwapBuffers();
+        SwapBuffers_Me();
     }
 
     return 0;
@@ -157,7 +157,7 @@ void InitializeBuffers() {
 }
 
 // Function to swap the rendering buffer
-void SwapBuffers() {
+void SwapBuffers_Me() {
     int nextIndex = (currentBufferIndex + 1) % BUFFER_COUNT;
     pixelBuffers[currentBufferIndex] = pixelBuffers[nextIndex];
     currentBufferIndex = (currentBufferIndex + 1) % BUFFER_COUNT;
